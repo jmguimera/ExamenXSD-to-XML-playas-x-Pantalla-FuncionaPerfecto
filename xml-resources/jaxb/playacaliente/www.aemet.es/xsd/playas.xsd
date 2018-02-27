@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="copyright" type="xs:string"/>
+	<xs:element name="dia">
+		<xs:complexType>
+			<xs:sequence>
+			<xs:element ref="estado_cielo"/>
+			<xs:element ref="viento"/>
+			<xs:element ref="oleaje"/>
+			<xs:element ref="t_maxima"/>
+			<xs:element ref="s_termica"/>
+			<xs:element ref="t_agua"/>
+			<xs:element ref="uv_max"/>
+			</xs:sequence>
+			<xs:attribute name="fecha" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="elaborado" type="xs:dateTime"/>
+	<xs:element name="estado_cielo">
+		<xs:complexType>
+			<xs:attribute name="f1" type="xs:string" use="required"/>
+			<xs:attribute name="descripcion1" type="xs:string" use="required"/>
+			<xs:attribute name="f2" type="xs:string" use="required"/>
+			<xs:attribute name="descripcion2" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="language" type="xs:string"/>
+	<xs:element name="localidad" type="xs:long"/>
+	<xs:element name="nombre" type="xs:string"/>
+	<xs:element name="nota_legal" type="xs:anyURI"/>
+	<xs:element name="oleaje">
+		<xs:complexType>
+			<xs:attribute name="f1" type="xs:string" use="required"/>
+			<xs:attribute name="descripcion1" type="xs:string" use="required"/>
+			<xs:attribute name="f2" type="xs:string" use="required"/>
+			<xs:attribute name="descripcion2" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>	<xs:element name="origen">
+		<xs:complexType>
+			<xs:sequence>
+			<xs:element ref="productor"/>
+			<xs:element ref="web"/>
+			<xs:element ref="language"/>
+			<xs:element ref="copyright"/>
+			<xs:element ref="nota_legal"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>	<xs:element name="playa">
+		<xs:complexType>
+			<xs:sequence>
+			<xs:element ref="origen"/>
+			<xs:element ref="elaborado"/>
+			<xs:element ref="nombre"/>
+			<xs:element ref="localidad"/>
+			<xs:element ref="prediccion"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:int" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="prediccion">
+		<xs:complexType>
+			<xs:sequence>
+			<xs:element ref="dia" maxOccurs="3"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="productor" type="xs:string"/>
+	<xs:element name="s_termica">
+		<xs:complexType>
+			<xs:attribute name="valor1" type="xs:string" use="required"/>
+			<xs:attribute name="descripcion1" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="t_agua">
+		<xs:complexType>
+			<xs:attribute name="valor1" type="xs:byte" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="t_maxima">
+		<xs:complexType>
+			<xs:attribute name="valor1" type="xs:byte" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="uv_max">
+		<xs:complexType>
+			<xs:attribute name="valor1" type="xs:byte" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="viento">
+		<xs:complexType>
+			<xs:attribute name="f1" type="xs:string" use="required"/>
+			<xs:attribute name="descripcion1" type="xs:string" use="required"/>
+			<xs:attribute name="f2" type="xs:string" use="required"/>
+			<xs:attribute name="descripcion2" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="web" type="xs:anyURI"/>
+</xs:schema>
